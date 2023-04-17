@@ -95,7 +95,12 @@ Using the dataframe created above, analyze the returns of owning a newly listed 
 <img src="img/신규상장주식수익성.png" >
 
 * 신규 상장 주식을 랜덤으로 50개를 300거래일 동안 보유하였을 때 기대되어지는 수익률 히스토그램입니다.
+
 * 20~21년도에 상장한 주식 중 300거래일이 있는 주식만을 분석하였으며, 50개를 가지고 있었다면 평균 수익률은 거의 대부분 마이너스를 기록합니다.
+
+* A histogram of the expected return of holding 50 random newly listed stocks for 300 trading days.
+
+* Only stocks that went public in 20-21 and have 300 trading days were analyzed, and if you held 50 of them, the average return is almost always negative.
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -104,13 +109,19 @@ Using the dataframe created above, analyze the returns of owning a newly listed 
 
 1. 각 어떠한 특성을 가지고 있는 공모주가 상장한 첫째날의 수익성에 대해 분석을 진행합니다.
 분석 진행 후, 상장 첫째날의 공모주가 오를지에 대해 예측하는 모델을 개발합니다.
+Analyze the profitability of IPOs with certain characteristics on their first day of trading.
+After analyzing the data, develop a model that predicts the price of the stock on the first day of trading.
 <br>
 
 2. 각 상장한 신규 공모주들의 주식 시세 흐름 분석을 진행하고, 주가 예측 모델을 개발합니다.
+Analyze the stock price flow of each new publicly traded stock and develop a stock price prediction model.
+<br>
 
 * side project
 포트폴리오에 여러 주식을 담을 수록 수익성은 예금과 유사해지는지 확인합니다.
 이때, 주식은 여러 분야 혹은 단일 분야로 설정하고 비교를 진행합니다.
+We want to see if the more stocks you have in your portfolio, the more your returns will be similar to deposits.
+Stocks can be in multiple sectors or a single sector, and comparisons can be made.
 
 
 
@@ -125,14 +136,28 @@ Using the dataframe created above, analyze the returns of owning a newly listed 
 
 네이버 증권은 크롤링을 통해서 정보를 수집합니다. pykrx 사용법은 ([LINK](https://github.com/sharebook-kr/pykrx))를 참고해서 이용합니다. 수집한 데이터를 하나의 데이터프레임으로 생성합니다.
 
-<br>
-2. 위에서 만든 데이터프레임을 이용하여 공모주의 상장한 날의 주가 흐름을 분석합니다. 그리고 회귀 모형을 이용하여 상장날 종가를 예측합니다.<br>
+Collect text data from public data portals Financial Services Commission_Stock Quotes, KRX Korea Exchange - Publicly Traded Companies, pykrx module, and NAVER Securities stock discussion board. 
+NAVER Securities collects information through crawling. For how to use pykrx, refer to ([LINK](https://github.com/sharebook-kr/pykrx)). Create a dataframe with the collected data.
 
 <br>
-3. 위에서 만든 데이터프레임을 이용하여 신규 상장 주식의 주가 흐름 분석을 진행하며 주가 예측 모델을 LSTM model을 이용하여 개발합니다.<br>
+2. 위에서 만든 데이터프레임을 이용하여 공모주의 상장한 날의 주가 흐름을 분석합니다. 그리고 회귀 모형을 이용하여 상장날 종가를 예측합니다.
+
+Using the data frame created above, analyze the stock price movement on the day of the public offering and predict the closing price using a regression model.
+<br>
 
 <br>
-4. (side) 신규 상장 공모주에 대하여 종목을 여러개 가지고 있을 경우, 예금의 금리 수익성과 비슷하다는 가설을 설정하고 분석합니다. 이 때, 실험은 종목의 개수, 종목 분야의 다양성(2차전지, 의료, 식품, IT 등등)등을 바꿔가며 진행합니다.<br><br>
+3. 위에서 만든 데이터프레임을 이용하여 신규 상장 주식의 주가 흐름 분석을 진행하며 주가 예측 모델을 LSTM model을 이용하여 개발합니다.
+
+<br>
+Analyze the stock price flow of newly listed stocks using the data frame created above, and develop a stock price prediction model using the LSTM model.
+<br>
+
+<br>
+4. (side) 신규 상장 공모주에 대하여 종목을 여러개 가지고 있을 경우, 예금의 금리 수익성과 비슷하다는 가설을 설정하고 분석합니다. 이 때, 실험은 종목의 개수, 종목 분야의 다양성(2차전지, 의료, 식품, IT 등등)등을 바꿔가며 진행합니다.
+<br>
+
+ Analyze the hypothesis that having multiple stocks in a newly listed public stock is similar to the interest rate return of a deposit. The experiment is conducted by varying the number of stocks and the diversity of sectors (secondary battery, medical, food, IT, etc.).
+<br><br>
 
 
 
@@ -142,9 +167,10 @@ Using the dataframe created above, analyze the returns of owning a newly listed 
 <h1> Expectations </h1>
 
 `공모주에 공모하기 앞서 좀 더 수익성이 기대되어지는 공모주를 선별하여 투자할 수 있습니다.`
-
+You can invest in publicly traded stocks that are expected to be more profitable before they go public.'
 
 `공모주에 매도 시기를 결정하는데 도움을 줄 수 있습니다.`
-
+It can help you decide when to sell publicly traded stocks.
 
 `주식 투자간 포트폴리오 구성에 있어서 도움을 줄 수 있습니다.`
+It can help you organize your portfolio between stock investments.

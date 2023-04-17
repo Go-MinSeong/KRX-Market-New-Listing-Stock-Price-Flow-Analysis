@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="krx-market-new-listing-stock-price-flow-analysis">KRX Market New Listing Stock Price Flow Analysis</h1>
+<h1 align="center"> Stock Price Flow Analysis </h1>
+<h5 align="center"> Time series analysis Project  (2023-03 ~ ing) </h5>
+<ul>
+<li>This project is still ongoing and being updated.</li>
+</ul>
+<br>
+<h3> Project Instruments </h3>
+<p>최근 들어 신규 상장 불패 신화 관련, 뉴스가 많이 들려오고 있습니다. 또한, 한때 공모주 열풍이 불기도 하였습니다.
+그렇다면, 진짜로 공모주는 불패 신화일까?에 대해 분석하여 공모주 선택 및 공모주 상장일 이후 언제쯤 매도하는 것이 최고의 수익을 볼 수 있는지 예측하는 최종 프로젝트를 하고자 합니다.</p>
+<p>There's been a lot of news lately about the myth of the unbeatable IPO, and there was even a public stock craze at one point.
+For my final project, I would like to analyze when it is best to sell after the IPO date.
+<br></p>
+<h3> Project Goals </h3>
+<p>KRX 신규 상장 주식을 분석하여 어떠한 종류의 공모주를 선택하는 것이 좋은지, 언제 파는 것이 좋은지에 대한 분석 진행 및 모델을 개발하여 현명한 주식 투자를 하고자 합니다.</p>
+<p>We want to make smart stock investments by analyzing KRX newly listed stocks and developing models on what kind of public stocks to choose and when to sell.</p>
+<p>또한, 투자중인 공모주에 대해 분석하여 알맞는 판단 및 판매 시기를 정하도록 합니다.</p>
+<p>It also analyzes the publicly traded stocks you're investing in to help you make the right decisions and time to sell.
+<br></p>
+<h3> Methods </h3>
+&#xACF5;&#xACF5; &#xB370;&#xC774;&#xD130; &#xD3EC;&#xD138;&#xC5D0;&#xC11C; KRX &#xC8FC;&#xC2DD; &#xC2DC;&#xC138; &#xC815;&#xBCF4;&#xB97C; &#xC218;&#xC9D1;&#xD569;&#xB2C8;&#xB2E4;. &#xD22C;&#xC790; &#xACF5;&#xBAA8;&#xC8FC; &#xC885;&#xBAA9; &#xC120;&#xC815;&#xC744; &#xC704;&#xD574;&#xC11C; &#xAC01; &#xC885;&#xBAA9;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xD68C;&#xC0AC;&#xC758; &#xBD84;&#xC57C;, per, &#xBCF4;&#xD638;&#xC218;&#xB7C9;, &#xD604;&#xAE08;, &#xB9E4;&#xCD9C;, &#xC218;&#xC775;, &#xAC70;&#xB798;&#xB7C9;, &#xD1A0;&#xB860;&#xBC29;&#xC758; &#xB313;&#xAE00; &#xB4F1;&#xC744; &#xD1B5;&#xD558;&#xC5EC; &#xC885;&#xBAA9;&#xC744; &#xC120;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
+<p>그리고, 시세 흐름 분석을 통해 앞으로 주가는 어떻게 될지 예측합니다.</p>
+<p>We collect KRX stock quotes from public data portals. To select stocks for public offering, we analyze each company's sector, PER, number of shares reserved, cash, sales, earnings, trading volume, and comments in the discussion board.</p>
+<p>Then, we analyze the price flow to predict the stock price in the future.
+<br></p>
+<p><img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="-----------------------------------------------------"></p>
+<h1> Datasets </h1>
+<h5 id="%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8F%AC%ED%84%B8---%EA%B8%88%EC%9C%B5%EC%9C%84%EC%9B%90%ED%9A%8C%EC%A3%BC%EC%8B%9D%EC%A0%95%EB%B3%B4%EC%84%9C%EB%B9%84%EC%8A%A4httpswwwdatagokriimapiselectapiacountviewdo">공공데이터포털 - 금융위원회_주식정보서비스(<a href="https://www.data.go.kr/iim/api/selectAPIAcountView.do">https://www.data.go.kr/iim/api/selectAPIAcountView.do</a>)</h5>
+<h5 id="%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8F%AC%ED%84%B8---%EA%B8%88%EC%9C%B5%EC%9C%84%EC%9B%90%ED%9A%8C%EC%A3%BC%EC%8B%9D%EC%8B%9C%EC%84%B8%EC%A0%95%EB%B3%B4httpswwwdatagokriimapiselectapiacountviewdo">공공데이터포털 - 금융위원회_주식시세정보(<a href="https://www.data.go.kr/iim/api/selectAPIAcountView.do">https://www.data.go.kr/iim/api/selectAPIAcountView.do</a>)</h5>
+<p>한국거래소에서 제공하는 주식시세 정보
+주식시세, 수익증권시세, 신주인수권증권시세, 신주인수권증서시세에 대한 오퍼레이션을 제공한다.</p>
+<p>Stock quotes provided by the Korea Exchange
+Provides operations for stock quotation, revenue stock quotation, warrant stock quotation, and warrant certificate quotation.</p>
+<h5 id="krx%ED%95%9C%EA%B5%AD%EA%B1%B0%EB%9E%98%EC%86%8C---%EC%8B%A0%EA%B7%9C%EC%83%81%EC%9E%A5%EA%B8%B0%EC%97%85%ED%98%84%ED%99%A9httpskindkrxcokrlistinvstglistingcompanydomethodsearchlistingtypemain">KRX한국거래소 - 신규상장기업현황(<a href="https://kind.krx.co.kr/listinvstg/listingcompany.do?method=searchListingTypeMain">https://kind.krx.co.kr/listinvstg/listingcompany.do?method=searchListingTypeMain</a>)</h5>
+<h5 id="krx%ED%95%9C%EA%B5%AD%EA%B1%B0%EB%9E%98%EC%86%8C---%EA%B3%B5%EB%AA%A8%EA%B8%B0%EC%97%85%ED%98%84%ED%99%A9httpskindkrxcokrlistinvstgpubofrprogcomdomethodsearchpubofrprogcommain">KRX한국거래소 - 공모기업현황(<a href="https://kind.krx.co.kr/listinvstg/pubofrprogcom.do?method=searchPubofrProgComMain">https://kind.krx.co.kr/listinvstg/pubofrprogcom.do?method=searchPubofrProgComMain</a>)</h5>
+<h5 id="%EB%84%A4%EC%9D%B4%EB%B2%84%EC%A6%9D%EA%B6%8C-httpsfinancenavercom">네이버증권 (<a href="https://finance.naver.com/">https://finance.naver.com/</a>)</h5>
+<br>
+<p><img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="-----------------------------------------------------"></p>
+<br>
+<h1> File Description </h1>
+<br>
+<b>1. KRX_Market_New_Listings_Analysis </b> - &#xACF5;&#xACF5;&#xB370;&#xC774;&#xD130; &#xD3EC;&#xD138;&#xC5D0;&#xC11C; api&#xB97C; &#xC774;&#xC6A9;&#xD574; 18 ~ 22&#xB144;&#xB3C4; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC218;&#xC9D1;&#xD558;&#xC5EC; KRX &#xC2DC;&#xC7A5;&#xC5D0; &#xC2E0;&#xADDC; &#xC0C1;&#xC7A5;&#xD55C; &#xC8FC;&#xC2DD; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC815;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;. KRX&#xC0C1;&#xC7A5;&#xC758; &#xC2DC;&#xACC4;&#xC5F4;&#xC131;&#xC744; &#xD655;&#xC778; &#xBC0F; &#xB370;&#xC774;&#xD130; &#xD504;&#xB808;&#xC784;&#xC744; &#xBD84;&#xC11D;&#xD569;&#xB2C8;&#xB2E4;.
+<p>Organize the data of newly listed stocks on the KRX market by collecting data from 18 to 22 years using APIs from the public data portal. Check the time series of KRX listings and analyze the data frame.<br />
+<br></p>
+<p align="center"> 
+<img src="file:///Users/gominseong/Desktop/Github_main/KRX-Market-New-Listing-Stock-Price-Flow-Analysis/img/&#xC2DC;&#xAE30;&#xBCC4;&#xBC1C;&#xD589;&#xD68C;&#xC0AC;&#xC218;.png">
+</p><ul>
+<li>모든 연도에서 월별 주식 상장의 시계열성은 비슷한 것을 확인할 수 있으며, 특정 달에 많은 회사가 상장하는 것을 확인할 수 있습니다.</li>
+</ul>
+<br>
+<b>2. Analyzing_the_Market_Flow_of_Newly_Listed_Stocks_in_20-21 </b> - &#xACF5;&#xACF5;&#xB370;&#xC774;&#xD130; &#xD3EC;&#xD138;&#xC5D0;&#xC11C; api&#xB97C; &#xC774;&#xC6A9;&#xD574; KRX&#xC2DC;&#xC7A5; 18&#xB144;&#xB3C4;&#xBD80;&#xD130;&#xC758; &#xC8FC;&#xC2DD; &#xC2DC;&#xC138;&#xB97C; &#xB370;&#xC774;&#xD130; &#xD504;&#xB808;&#xC784;&#xD654;&#xD569;&#xB2C8;&#xB2E4;. &#xD55C;&#xAD6D;&#xAC70;&#xB798;&#xC18C;&#xC5D0;&#xC11C; &#xAE30;&#xC5C5;&#xB4E4;&#xC758; &#xC2E0;&#xADDC;&#xC0C1;&#xC7A5;&#xAE30;&#xC5C5; &#xD604;&#xD669;&#xC744; &#xB370;&#xC774;&#xD130;&#xD504;&#xB808;&#xC784;&#xD654;&#xD569;&#xB2C8;&#xB2E4;. &#xB450; &#xAC1C;&#xC758; &#xB370;&#xC774;&#xD130;&#xD504;&#xB808;&#xC784;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; 20~21&#xB144;&#xB3C4;&#xC5D0; KRX&#xC5D0; &#xC0C1;&#xC7A5;&#xD55C; &#xC8FC;&#xC2DD;&#xC758; &#xC2DC;&#xC138;&#xD750;&#xB984;&#xC744; &#xBD84;&#xC11D;&#xD569;&#xB2C8;&#xB2E4;.
+<p>Data frame stock quotes from KRX market since 2018 using API from public data portal. Create a data frame of companies' initial public offerings on the Korean Exchange. Analyze the price flow of stocks listed on KRX in 20-21 using two data frames.<br /></p>
+<p align="center"> 
+<img src="file:///Users/gominseong/Desktop/Github_main/KRX-Market-New-Listing-Stock-Price-Flow-Analysis/img/20210102&#xC0C1;&#xC7A5;&#xC2DC;&#xCD1D;&#xD750;&#xB984;.png">
+<br><br>
+* 2021&#xB144; 1&#xC6D4; 2&#xC77C;&#xC5D0; &#xC0C1;&#xC7A5;&#xD55C; 3&#xAC1C;&#xC758; &#xC2E0;&#xADDC; &#xC0C1;&#xC7A5; &#xC8FC;&#xC2DD;&#xC758; &#xC2DC;&#xCD1D; &#xD750;&#xB984;&#xC744; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;.
+</p><p><br><br>
+<b>3. Analyze_the_profitability_of_newly_listed_stocks </b> - 위에서 만든 데이터프레임을 이용하여 20~21년도 신규 상장 주식을 가지고 있었을 때의 수익을 분석합니다.</p>
+<p>Using the dataframe created above, analyze the returns of owning a newly listed stock in 20-21.<br /></p>
+<p align="center"> 
+<img src="file:///Users/gominseong/Desktop/Github_main/KRX-Market-New-Listing-Stock-Price-Flow-Analysis/img/&#xC2E0;&#xADDC;&#xC0C1;&#xC7A5;&#xC8FC;&#xC2DD;&#xC218;&#xC775;&#xC131;.png">
+</p><ul>
+<li>신규 상장 주식을 랜덤으로 50개를 300거래일 동안 보유하였을 때 기대되어지는 수익률 히스토그램입니다.</li>
+<li>20~21년도에 상장한 주식 중 300거래일이 있는 주식만을 분석하였으며, 50개를 가지고 있었다면 평균 수익률은 거의 대부분 마이너스를 기록합니다.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="-----------------------------------------------------"></p>
+<h1> To do List </h1>
+<ol>
+<li>
+<p>각 어떠한 특성을 가지고 있는 공모주가 상장한 첫째날의 수익성에 대해 분석을 진행합니다.
+분석 진행 후, 상장 첫째날의 공모주가 오를지에 대해 예측하는 모델을 개발합니다.
+<br></p>
+</li>
+<li>
+<p>각 상장한 신규 공모주들의 주식 시세 흐름 분석을 진행하고, 주가 예측 모델을 개발합니다.</p>
+</li>
+</ol>
+<ul>
+<li>side project
+포트폴리오에 여러 주식을 담을 수록 수익성은 예금과 유사해지는지 확인합니다.
+이때, 주식은 여러 분야 혹은 단일 분야로 설정하고 비교를 진행합니다.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="-----------------------------------------------------"></p>
+<h1> Method </h1>
+<br>
+1. &#xACF5;&#xACF5; &#xB370;&#xC774;&#xD130; &#xD3EC;&#xD138; &#xAE08;&#xC735;&#xC704;&#xC6D0;&#xD68C;_&#xC8FC;&#xC2DD;&#xC2DC;&#xC138;&#xC815;&#xBCF4;, KRX&#xD55C;&#xAD6D;&#xAC70;&#xB798;&#xC18C; - &#xACF5;&#xBAA8;&#xAE30;&#xC5C5;&#xD604;&#xD669;, pykrx &#xBAA8;&#xB4C8;, &#xB124;&#xC774;&#xBC84; &#xC99D;&#xAD8C; &#xC885;&#xBAA9; &#xD1A0;&#xB860;&#xBC29; &#xD14D;&#xC2A4;&#xD2B8; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC218;&#xC9D1;&#xD569;&#xB2C8;&#xB2E4;. 
+<p>네이버 증권은 크롤링을 통해서 정보를 수집합니다. pykrx 사용법은 (<a href="https://github.com/sharebook-kr/pykrx">LINK</a>)를 참고해서 이용합니다. 수집한 데이터를 하나의 데이터프레임으로 생성합니다.</p>
+<br>
+2. &#xC704;&#xC5D0;&#xC11C; &#xB9CC;&#xB4E0; &#xB370;&#xC774;&#xD130;&#xD504;&#xB808;&#xC784;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xACF5;&#xBAA8;&#xC8FC;&#xC758; &#xC0C1;&#xC7A5;&#xD55C; &#xB0A0;&#xC758; &#xC8FC;&#xAC00; &#xD750;&#xB984;&#xC744; &#xBD84;&#xC11D;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xD68C;&#xADC0; &#xBAA8;&#xD615;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xC0C1;&#xC7A5;&#xB0A0; &#xC885;&#xAC00;&#xB97C; &#xC608;&#xCE21;&#xD569;&#xB2C8;&#xB2E4;.<br>
+<br>
+3. &#xC704;&#xC5D0;&#xC11C; &#xB9CC;&#xB4E0; &#xB370;&#xC774;&#xD130;&#xD504;&#xB808;&#xC784;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xC2E0;&#xADDC; &#xC0C1;&#xC7A5; &#xC8FC;&#xC2DD;&#xC758; &#xC8FC;&#xAC00; &#xD750;&#xB984; &#xBD84;&#xC11D;&#xC744; &#xC9C4;&#xD589;&#xD558;&#xBA70; &#xC8FC;&#xAC00; &#xC608;&#xCE21; &#xBAA8;&#xB378;&#xC744; LSTM model&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xAC1C;&#xBC1C;&#xD569;&#xB2C8;&#xB2E4;.<br>
+<br>
+4. (side) &#xC2E0;&#xADDC; &#xC0C1;&#xC7A5; &#xACF5;&#xBAA8;&#xC8FC;&#xC5D0; &#xB300;&#xD558;&#xC5EC; &#xC885;&#xBAA9;&#xC744; &#xC5EC;&#xB7EC;&#xAC1C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC744; &#xACBD;&#xC6B0;, &#xC608;&#xAE08;&#xC758; &#xAE08;&#xB9AC; &#xC218;&#xC775;&#xC131;&#xACFC; &#xBE44;&#xC2B7;&#xD558;&#xB2E4;&#xB294; &#xAC00;&#xC124;&#xC744; &#xC124;&#xC815;&#xD558;&#xACE0; &#xBD84;&#xC11D;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xB54C;, &#xC2E4;&#xD5D8;&#xC740; &#xC885;&#xBAA9;&#xC758; &#xAC1C;&#xC218;, &#xC885;&#xBAA9; &#xBD84;&#xC57C;&#xC758; &#xB2E4;&#xC591;&#xC131;(2&#xCC28;&#xC804;&#xC9C0;, &#xC758;&#xB8CC;, &#xC2DD;&#xD488;, IT &#xB4F1;&#xB4F1;)&#xB4F1;&#xC744; &#xBC14;&#xAFD4;&#xAC00;&#xBA70; &#xC9C4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.<br><br>
+<p><img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="-----------------------------------------------------"></p>
+<h1> Expectations </h1>
+<p><code>공모주에 공모하기 앞서 좀 더 수익성이 기대되어지는 공모주를 선별하여 투자할 수 있습니다.</code></p>
+<p><code>공모주에 매도 시기를 결정하는데 도움을 줄 수 있습니다.</code></p>
+<p><code>주식 투자간 포트폴리오 구성에 있어서 도움을 줄 수 있습니다.</code></p>
+
+</body>
+</html>
