@@ -142,5 +142,9 @@ Using the dataframe created above, analyze the returns of owning a newly listed 
 <h1> Expectations </h1>
 
 `공모주에 공모하기 앞서 좀 더 수익성이 기대되어지는 공모주를 선별하여 투자할 수 있습니다.`
+
+
 `공모주에 매도 시기를 결정하는데 도움을 줄 수 있습니다.`
+
+
 `주식 투자간 포트폴리오 구성에 있어서 도움을 줄 수 있습니다.`
