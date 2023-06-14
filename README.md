@@ -3,9 +3,9 @@
 
 <h1 align="center"> Stock Price Flow Analysis </h1>
 
-<h5 align="center"> Time series analysis Project  (2023-03 ~ ing) </h5>
+<h5 align="center"> Time series analysis Project  (2023-03 ~ 2023-06) </h5>
 
-* This project is still ongoing and being updated. 
+
 
 <br>
 <h3> Project Instruments </h3>
@@ -30,9 +30,9 @@ It also analyzes the publicly traded stocks you're investing in to help you make
 <br>
 
 <h3> Methods </h3>
-공공 데이터 포털에서 KRX 주식 시세 정보를 수집합니다. 투자 공모주 종목 선정을 위해서 각 종목에 해당하는 회사의 분야, per, 보호수량, 현금, 매출, 수익, 거래량, 토론방의 댓글 등을 통하여 종목을 선정합니다.
+공공 데이터 포털에서 KRX 주식 시세 정보를 수집합니다. 투자 공모주 종목 선정을 위해서 각 종목에 해당하는 회사의 분야, per, 보호수량, 현금, 매출, 수익, 거래량 등을 통하여 종목을 선정합니다.
 
-그리고, 시세 흐름 분석을 통해 앞으로 주가는 어떻게 될지 예측합니다.
+<br>
 
 We collect KRX stock quotes from public data portals. To select stocks for public offering, we analyze each company's sector, PER, number of shares reserved, cash, sales, earnings, trading volume, and comments in the discussion board.
 
@@ -59,7 +59,11 @@ Provides operations for stock quotation, revenue stock quotation, warrant stock 
 
 ##### KRX한국거래소 - 공모기업현황([https://kind.krx.co.kr/listinvstg/pubofrprogcom.do?method=searchPubofrProgComMain](https://kind.krx.co.kr/listinvstg/pubofrprogcom.do?method=searchPubofrProgComMain))
 
-##### 네이버증권 ([https://finance.naver.com/](https://finance.naver.com/))
+
+##### KIND기업공시 - 상장일주가등락율현황 등([https://kind.krx.co.kr/main.do?method=loadInitPage&scrnmode=1](https://kind.krx.co.kr/main.do?method=loadInitPage&scrnmode=1))
+
+
+##### 인베스팅닷컴 - 경제 지표 ([https://kr.investing.com/](https://kr.investing.com/))
 <br>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -103,41 +107,23 @@ Using the dataframe created above, analyze the returns of owning a newly listed 
 * Only stocks that went public in 20-21 and have 300 trading days were analyzed, and if you held 50 of them, the average return is almost always negative.
 
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+<br><br>
+<b>4. final </b> - 지금까지 해온 것을 토대로 공모주에 대한 분석 진행 및 공모주 선정 매도시기 결정에 대하여 모델링을 진행합니다. 이에 대한 내용은 'KRX 신규 상장 주식 분석 및 주가 예측.pdf'에 나와 있습니다.
 
-<h1> To do List </h1>
-
-1. 각 어떠한 특성을 가지고 있는 공모주가 상장한 첫째날의 수익성에 대해 분석을 진행합니다.
-분석 진행 후, 상장 첫째날의 공모주가 오를지에 대해 예측하는 모델을 개발합니다.
-Analyze the profitability of IPOs with certain characteristics on their first day of trading.
-After analyzing the data, develop a model that predicts the price of the stock on the first day of trading.
-<br>
-
-2. 각 상장한 신규 공모주들의 주식 시세 흐름 분석을 진행하고, 주가 예측 모델을 개발합니다.
-Analyze the stock price flow of each new publicly traded stock and develop a stock price prediction model.
-<br>
-
-* side project
-포트폴리오에 여러 주식을 담을 수록 수익성은 예금과 유사해지는지 확인합니다.
-이때, 주식은 여러 분야 혹은 단일 분야로 설정하고 비교를 진행합니다.
-We want to see if the more stocks you have in your portfolio, the more your returns will be similar to deposits.
-Stocks can be in multiple sectors or a single sector, and comparisons can be made.
-
-
-
+Based on what we have done so far, we will proceed with the analysis of publicly traded stocks and model the decision of when to buy and sell publicly traded stocks. This is explained in 'KRX 신규 상장 주식 분석 및 주가 예측.pdf'. <br />
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h1> Method </h1>
+<h1> Specific Method </h1>
 
 <br>
-1. 공공 데이터 포털 금융위원회_주식시세정보, KRX한국거래소 - 공모기업현황, pykrx 모듈, 네이버 증권 종목 토론방 텍스트 데이터를 수집합니다. 
+1. 공공 데이터 포털 금융위원회_주식시세정보, KRX한국거래소 - 공모기업현황 등 KIND 기업 공시 사이트 데이터,  pykrx 모듈, 인베스팅닷컴의 여러 경제 지표 데이터를 수집합니다. 
 
-네이버 증권은 크롤링을 통해서 정보를 수집합니다. pykrx 사용법은 ([LINK](https://github.com/sharebook-kr/pykrx))를 참고해서 이용합니다. 수집한 데이터를 하나의 데이터프레임으로 생성합니다.
+pykrx 사용법은 ([LINK](https://github.com/sharebook-kr/pykrx))를 참고해서 이용합니다. 수집한 데이터를 하나의 데이터프레임으로 생성합니다.
 
-Collect text data from public data portals Financial Services Commission_Stock Quotes, KRX Korea Exchange - Publicly Traded Companies, pykrx module, and NAVER Securities stock discussion board. 
-NAVER Securities collects information through crawling. For how to use pykrx, refer to ([LINK](https://github.com/sharebook-kr/pykrx)). Create a dataframe with the collected data.
+collect data from KIND corporate disclosure sites such as the public data portal Financial Services Commission_Stock Quote Information, KRX Korea Exchange - Public Company Status, pykrx module, and various economic indicators from Investing.com. 
+For how to use pykrx, refer to ([LINK](https://github.com/sharebook-kr/pykrx)). Create a dataframe with the collected data.
 
 <br>
 2. 위에서 만든 데이터프레임을 이용하여 공모주의 상장한 날의 주가 흐름을 분석합니다. 그리고 회귀 모형을 이용하여 상장날 종가를 예측합니다.
@@ -146,19 +132,36 @@ Using the data frame created above, analyze the stock price movement on the day 
 <br>
 
 <br>
-3. 위에서 만든 데이터프레임을 이용하여 신규 상장 주식의 주가 흐름 분석을 진행하며 주가 예측 모델을 LSTM model을 이용하여 개발합니다.
+3. 위에서 만든 데이터프레임을 이용하여 매도 시기 ( 상장일, 1개월 후, 3개월 후, 6개월 후)를 이용하여 4진 분류를 통해 매도 시기를 결정합니다.
 
 <br>
-Analyze the stock price flow of newly listed stocks using the data frame created above, and develop a stock price prediction model using the LSTM model.
+Using the dataframe created above, determine the timing of the sale using a quadratic categorization using the timing of the sale (listing date, 1 month later, 3 months later, 6 months later).
 <br>
 
-<br>
-4. (side) 신규 상장 공모주에 대하여 종목을 여러개 가지고 있을 경우, 예금의 금리 수익성과 비슷하다는 가설을 설정하고 분석합니다. 이 때, 실험은 종목의 개수, 종목 분야의 다양성(2차전지, 의료, 식품, IT 등등)등을 바꿔가며 진행합니다.
-<br>
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
- Analyze the hypothesis that having multiple stocks in a newly listed public stock is similar to the interest rate return of a deposit. The experiment is conducted by varying the number of stocks and the diversity of sectors (secondary battery, medical, food, IT, etc.).
-<br><br>
 
+
+<h1> Result </h1>
+
+<p align="center"> 
+<img src="img/모델적용전수익률.png" >
+
+* 모델을 적용하지 않고 21~22년도에 상장한 주식 랜덤으로 5개를 랜덤으로 시기를 정해 매도하였을 경우에 평균 수익률 입니다.
+
+* The average return if you sold five randomly timed stocks listed in 21-22 without applying the model.
+
+<p align="center"> 
+<img src="img/모델적용후수익률.png" >
+
+* 모델의 예측 결과를 토대로 공모주를 5개 선정하여 매도시기를 결정하여 매도하였을 경우에 평균 수익률 입니다.
+
+* This is the average return if you selected 5 public stocks based on the model's prediction and decided when to sell.
+
+
+"위의 히스토그램을  보면 알 수 있듯이 모델의 예측 결과를 토대로 공모주를 선정한 다음, 매도시기를 결정하였을 때 모델 없이 했을 때보다 많은 수익률을 가져다 줄 수 있음을 알 수 있습니다. 모델을 사용하지 않았을 경우 나타내는 평균 수익률은 58%이며, 모델을 사용했을 경우 나타내는 평균 수익률은 134%입니다. 다만, 데이터의 부족으로 인해 학습하는데 사용한 데이터도 결과의 들어가 있어 과적합을 어느정도 가지고 있을 수 있습니다. 그리고, 코로나 시기가 종료된 이후 KRX시장이 좋으며 공모주의 많은 관심이 쏠려 있을 때라 기본적으로 수익률이 높은 것을 볼 수 있습니다."
+
+"As you can see from the histogram above, using the model's predictions to select public offerings, and then deciding when to sell, can result in higher returns than without the model. The average return without the model is 58%, while the average return with the model is 134%. However, due to the lack of data, the data used to train the model is also included in the results, so there may be some overfitting, and we can see that the returns are basically higher because the KRX market is doing well since the end of the pandemic and there is a lot of interest in public stocks."
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -168,7 +171,7 @@ Analyze the stock price flow of newly listed stocks using the data frame created
 
 `공모주에 공모하기 앞서 좀 더 수익성이 기대되어지는 공모주를 선별하여 투자할 수 있습니다.`
 
-You can invest in publicly traded stocks that are expected to be more profitable before they go public.'
+You can invest in publicly traded stocks that are expected to be more profitable before they go public.
 
 `공모주에 매도 시기를 결정하는데 도움을 줄 수 있습니다.`
 
